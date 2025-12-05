@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="fadeMono" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:1" />
+      <stop offset="85%" style="stop-color:white;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:white;stop-opacity:0" />
+    </linearGradient>
+    <mask id="fade">
+      <rect width="512" height="512" fill="url(#fadeMono)"/>
+    </mask>
+  </defs>
+
+  <!-- Single color version for light backgrounds -->
+  <g mask="url(#fade)">
+    <!-- Outer V -->
+    <path d="M256 72 L420 400 L92 400 Z" fill="#0a0a0a"/>
+    <!-- Inner cut -->
+    <path d="M256 168 L344 352 L168 352 Z" fill="#ffffff"/>
+  </g>
+</svg>

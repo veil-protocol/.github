@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Gradient for depth -->
+    <linearGradient id="layer1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d7dd2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3d8af0;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2563a8;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="layer3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d6fc4;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#1d4e8a;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background (optional - remove for transparent) -->
+  <!-- <rect width="512" height="512" fill="#0a0a0a"/> -->
+
+  <!-- Layer 3 (back) - PIR -->
+  <path d="M256 100 L396 380 L116 380 Z" fill="url(#layer3)" transform="translate(24, 24)"/>
+
+  <!-- Layer 2 (middle) - Mix -->
+  <path d="M256 100 L396 380 L116 380 Z" fill="url(#layer2)" transform="translate(12, 12)"/>
+
+  <!-- Layer 1 (front) - DC-net -->
+  <path d="M256 100 L396 380 L116 380 Z" fill="url(#layer1)"/>
+
+  <!-- Inner cut to make it a V shape -->
+  <path d="M256 180 L326 340 L186 340 Z" fill="#0a0a0a"/>
+  <path d="M256 180 L326 340 L186 340 Z" fill="#0a0a0a" transform="translate(12, 12)" opacity="0.8"/>
+  <path d="M256 180 L326 340 L186 340 Z" fill="#0a0a0a" transform="translate(24, 24)" opacity="0.6"/>
+</svg>

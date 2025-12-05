@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="veilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a9eff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4a9eff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#4a9eff;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Flowing veil lines that form V in negative space -->
+
+  <!-- Left flowing lines -->
+  <path d="M80 80 Q150 200 256 420" stroke="url(#veilGrad)" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M100 80 Q165 200 256 400" stroke="url(#veilGrad)" stroke-width="4" fill="none" opacity="0.4"/>
+  <path d="M120 80 Q175 200 256 380" stroke="url(#veilGrad)" stroke-width="5" fill="none" opacity="0.5"/>
+  <path d="M140 80 Q185 200 256 360" stroke="url(#veilGrad)" stroke-width="6" fill="none" opacity="0.6"/>
+  <path d="M160 80 Q195 200 256 340" stroke="url(#veilGrad)" stroke-width="7" fill="none" opacity="0.7"/>
+  <path d="M180 80 Q205 200 256 320" stroke="url(#veilGrad)" stroke-width="8" fill="none" opacity="0.8"/>
+  <path d="M200 80 Q215 180 256 300" stroke="#4a9eff" stroke-width="10" fill="none" opacity="0.9"/>
+
+  <!-- Right flowing lines (mirrored) -->
+  <path d="M432 80 Q362 200 256 420" stroke="url(#veilGrad)" stroke-width="3" fill="none" opacity="0.3"/>
+  <path d="M412 80 Q347 200 256 400" stroke="url(#veilGrad)" stroke-width="4" fill="none" opacity="0.4"/>
+  <path d="M392 80 Q337 200 256 380" stroke="url(#veilGrad)" stroke-width="5" fill="none" opacity="0.5"/>
+  <path d="M372 80 Q327 200 256 360" stroke="url(#veilGrad)" stroke-width="6" fill="none" opacity="0.6"/>
+  <path d="M352 80 Q317 200 256 340" stroke="url(#veilGrad)" stroke-width="7" fill="none" opacity="0.7"/>
+  <path d="M332 80 Q307 200 256 320" stroke="url(#veilGrad)" stroke-width="8" fill="none" opacity="0.8"/>
+  <path d="M312 80 Q297 180 256 300" stroke="#4a9eff" stroke-width="10" fill="none" opacity="0.9"/>
+
+  <!-- Center convergence point -->
+  <circle cx="256" cy="400" r="8" fill="#4a9eff"/>
+</svg>
