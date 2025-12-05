@@ -1,98 +1,62 @@
+# VEIL
 
-<div align="center">
+VEIL is an anonymous communication protocol providing information-theoretic sender anonymity and receiver privacy against global adversaries. The design composes DC-nets, verifiable mix cascades, and private information retrieval to achieve metadata protection without trusted parties.
 
-# VEIL Protocol
+## Overview
 
-### Privacy You Can Prove
+Existing systems protect message content but leak communication patterns. VEIL addresses this gap by providing provable guarantees:
 
-**The first communication protocol with mathematically proven anonymity guarantees**
+- **Sender anonymity**: Information-theoretic within DC-net cohorts (n=64), following Chaum's dining cryptographers construction
+- **Receiver privacy**: Information-theoretic via Shamir-based PIR with 5-of-7 threshold across independent jurisdictions
+- **Unlinkability**: Computational (128-bit) through STARK-verified shuffle with FRI-based proofs
+- **Undetectability**: Tier 3 mode achieves information-theoretic undetectability using rejection-sampled steganography per Hopper et al.
 
----
+The protocol targets 200ms end-to-end latency at scale (10^8 users) through hierarchical DC-net aggregation.
 
-[Specification](https://github.com/veil-protocol/veil-spec) ·
-[Whitepaper](https://github.com/veil-protocol/veil-spec/blob/main/V17-WHITEPAPER-FULL.md) ·
-[Technical Reference](https://github.com/veil-protocol/veil-spec/blob/main/V17-TECHNICAL-REFERENCE.md)
-
----
-
-</div>
-
-## The Problem
-
-Every "private" messaging app leaks **metadata** — who you talk to, when, how often. This metadata is often more valuable than message content for surveillance.
-
-| App | Content Protected | Metadata Protected |
-|:---:|:-----------------:|:------------------:|
-| Signal | Yes | No |
-| WhatsApp | Yes | No |
-| Telegram | Partial | No |
-| **VEIL** | **Yes** | **Yes** |
-
-## The Solution
-
-VEIL provides **information-theoretic** security guarantees — meaning security is mathematically proven, not just computationally hard to break.
+## Technical Approach
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│   Sender  ──▶  DC-Net  ──▶  Mix Cascade  ──▶  PIR  ──▶  Receiver│
-│                  │              │              │                │
-│            Info-Theoretic   128-bit ZK   Info-Theoretic        │
-│             Anonymity        Proofs        Privacy             │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+Sender → DC-Net (IT anonymity) → Mix Cascade (ZK shuffle) → PIR (IT privacy) → Receiver
 ```
 
-## Key Properties
+**Cryptographic primitives**:
+- ML-KEM-1024 + X25519 hybrid KEM (post-quantum, defense in depth)
+- ChaCha20-Poly1305 AEAD
+- STARK proofs over Goldilocks field (2^64 - 2^32 + 1)
+- BLAKE3 for hashing and key derivation
 
-| Property | Guarantee | Type |
-|----------|-----------|------|
-| Sender Anonymity | Hidden in 64-user group | Information-Theoretic |
-| Receiver Privacy | Hidden via threshold PIR | Information-Theoretic |
-| Unlinkability | Cannot correlate messages | 128-bit Computational |
-| Undetectability | Indistinguishable from normal traffic | Information-Theoretic (Tier 3) |
-| Quantum Resistance | ML-KEM-1024 + X25519 hybrid | Post-Quantum Ready |
+**Threat model**: Global passive adversary with active capabilities on up to k-1 nodes in each threshold system. We do not defend against endpoint compromise or traffic analysis at the application layer.
 
-## By The Numbers
+## Documentation
 
-<div align="center">
+[Protocol Specification](https://github.com/veil-protocol/veil-spec/blob/main/V17-PRODUCTION-SPEC.md) — Implementation-ready specification with message formats, state machines, and parameter choices.
 
-| 200ms | 100M | 5 | 50+ | 0% |
-|:-----:|:----:|:-:|:---:|:--:|
-| Latency | Users Supported | Security Theorems | Attack Vectors Analyzed | Detection Rate (Tier 3) |
+[Technical Whitepaper](https://github.com/veil-protocol/veil-spec/blob/main/V17-WHITEPAPER-FULL.md) — Security model, formal reductions, and performance analysis.
 
-</div>
+[Security Proofs](https://github.com/veil-protocol/veil-spec/blob/main/V15-FORMAL-VERIFICATION-CYCLE.md) — Theorem statements and proof sketches for composition security.
 
-## Repositories
+## Project Status
 
-| Repository | Description | Status |
-|------------|-------------|--------|
-| [veil-spec](https://github.com/veil-protocol/veil-spec) | Protocol specification & whitepapers | V17 Complete |
-| veil-core | Rust implementation | Coming Soon |
-| veil-client | Desktop & mobile clients | Planned |
-| veil-node | Network infrastructure | Planned |
+The V17 specification is complete. Implementation has not begun.
 
-## Status
+Open areas for contribution:
+- Formal verification in Coq/Lean
+- Constant-time Rust implementation
+- Side-channel analysis
+- Protocol review and attack finding
 
-- [x] Protocol Design (V17)
-- [x] Formal Security Proofs
-- [x] Adversarial Analysis (50+ attack vectors)
-- [x] Complete Specification
-- [x] Academic Whitepaper
-- [ ] Reference Implementation
-- [ ] Security Audit
-- [ ] Testnet Launch
+## References
 
-## Contributing
+D. Chaum, "The Dining Cryptographers Problem: Unconditional Sender and Recipient Untraceability," *Journal of Cryptology*, 1988.
 
-We welcome contributions from cryptographers, security researchers, and developers.
+B. Chor, O. Goldreich, E. Kushilevitz, M. Sudan, "Private Information Retrieval," *FOCS*, 1995.
 
-See our [Contributing Guidelines](https://github.com/veil-protocol/veil-spec/blob/main/CONTRIBUTING.md).
+N. Hopper, J. Langford, L. von Ahn, "Provably Secure Steganography," *CRYPTO*, 2002.
 
----
+E. Ben-Sasson et al., "Scalable, transparent, and post-quantum secure computational integrity," *IACR ePrint*, 2018.
 
-<div align="center">
+NIST FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), 2024.
 
-**VEIL: When privacy is a proof, not a promise.**
+## License
 
-</div>
+MIT
