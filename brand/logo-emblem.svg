@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="darkSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c2333" />
+      <stop offset="50%" style="stop-color:#0d1117" />
+      <stop offset="100%" style="stop-color:#1c2333" />
+    </linearGradient>
+
+    <linearGradient id="metalRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a5568" />
+      <stop offset="30%" style="stop-color:#718096" />
+      <stop offset="50%" style="stop-color:#a0aec0" />
+      <stop offset="70%" style="stop-color:#718096" />
+      <stop offset="100%" style="stop-color:#4a5568" />
+    </linearGradient>
+
+    <linearGradient id="blueCore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed" />
+      <stop offset="100%" style="stop-color:#2b6cb0" />
+    </linearGradient>
+
+    <linearGradient id="veilFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#4299e1;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:0" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Outer beveled ring -->
+  <circle cx="256" cy="256" r="250" fill="url(#metalRing)" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="242" fill="url(#darkSteel)"/>
+  <circle cx="256" cy="256" r="235" fill="none" stroke="#2d3748" stroke-width="2"/>
+
+  <!-- Inner ring detail -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#4a5568" stroke-width="1"/>
+  <circle cx="256" cy="256" r="190" fill="#0a0e14"/>
+
+  <!-- Threshold network - outer nodes -->
+  <g>
+    <!-- Node positions in a circle -->
+    <g fill="#63b3ed" filter="url(#glow)">
+      <circle cx="256" cy="80" r="8"/>
+      <circle cx="378" cy="134" r="7"/>
+      <circle cx="422" cy="256" r="8"/>
+      <circle cx="378" cy="378" r="7"/>
+      <circle cx="256" cy="422" r="8"/>
+      <circle cx="134" cy="378" r="7"/>
+      <circle cx="90" cy="256" r="8"/>
+      <circle cx="134" cy="134" r="7"/>
+    </g>
+
+    <!-- Threshold connections (5-of-7 style) -->
+    <g stroke="#63b3ed" stroke-width="1" opacity="0.25">
+      <!-- Perimeter -->
+      <line x1="256" y1="80" x2="378" y2="134"/>
+      <line x1="378" y1="134" x2="422" y2="256"/>
+      <line x1="422" y1="256" x2="378" y2="378"/>
+      <line x1="378" y1="378" x2="256" y2="422"/>
+      <line x1="256" y1="422" x2="134" y2="378"/>
+      <line x1="134" y1="378" x2="90" y2="256"/>
+      <line x1="90" y1="256" x2="134" y2="134"/>
+      <line x1="134" y1="134" x2="256" y2="80"/>
+
+      <!-- Cross-connections (threshold) -->
+      <line x1="256" y1="80" x2="422" y2="256"/>
+      <line x1="256" y1="80" x2="90" y2="256"/>
+      <line x1="378" y1="134" x2="134" y2="378"/>
+      <line x1="134" y1="134" x2="378" y2="378"/>
+      <line x1="422" y1="256" x2="134" y2="378"/>
+      <line x1="90" y1="256" x2="378" y2="378"/>
+    </g>
+  </g>
+
+  <!-- Central V emblem with flow + fade -->
+  <g>
+    <!-- Flowing veil lines - left -->
+    <path d="M160 130 Q190 220 256 380" stroke="url(#veilFade)" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M175 130 Q200 220 256 365" stroke="url(#veilFade)" stroke-width="3" fill="none" opacity="0.4"/>
+    <path d="M190 130 Q212 220 256 350" stroke="url(#veilFade)" stroke-width="4" fill="none" opacity="0.5"/>
+    <path d="M205 130 Q224 220 256 335" stroke="url(#veilFade)" stroke-width="5" fill="none" opacity="0.6"/>
+    <path d="M218 130 Q235 210 256 320" stroke="url(#veilFade)" stroke-width="6" fill="none" opacity="0.7"/>
+
+    <!-- Flowing veil lines - right -->
+    <path d="M352 130 Q322 220 256 380" stroke="url(#veilFade)" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M337 130 Q312 220 256 365" stroke="url(#veilFade)" stroke-width="3" fill="none" opacity="0.4"/>
+    <path d="M322 130 Q300 220 256 350" stroke="url(#veilFade)" stroke-width="4" fill="none" opacity="0.5"/>
+    <path d="M307 130 Q288 220 256 335" stroke="url(#veilFade)" stroke-width="5" fill="none" opacity="0.6"/>
+    <path d="M294 130 Q277 210 256 320" stroke="url(#veilFade)" stroke-width="6" fill="none" opacity="0.7"/>
+
+    <!-- Main V stroke -->
+    <path d="M230 130 L256 310 L282 130"
+          stroke="url(#veilFade)"
+          stroke-width="16"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          filter="url(#glow)"/>
+
+    <!-- Highlight on V -->
+    <path d="M232 135 L256 300 L280 135"
+          stroke="#a0d8ef"
+          stroke-width="4"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.4"/>
+  </g>
+
+  <!-- Convergence point -->
+  <circle cx="256" cy="310" r="10" fill="#63b3ed" filter="url(#glow)"/>
+  <circle cx="256" cy="310" r="5" fill="#ffffff" opacity="0.5"/>
+
+  <!-- Inner accent ring -->
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#63b3ed" stroke-width="0.5" opacity="0.3"/>
+
+</svg>

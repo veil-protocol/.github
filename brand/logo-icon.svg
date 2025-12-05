@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#67d4fc" />
+      <stop offset="100%" style="stop-color:#2563eb" />
+    </linearGradient>
+
+    <linearGradient id="fadeVeil" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#67d4fc;stop-opacity:1" />
+      <stop offset="55%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="85%" style="stop-color:#1d4ed8;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0" />
+    </linearGradient>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Distributed nodes (forming rough V shape) -->
+  <g fill="#3b82f6" opacity="0.5">
+    <circle cx="100" cy="90" r="6"/>
+    <circle cx="412" cy="90" r="6"/>
+    <circle cx="130" cy="180" r="5"/>
+    <circle cx="382" cy="180" r="5"/>
+    <circle cx="165" cy="270" r="4"/>
+    <circle cx="347" cy="270" r="4"/>
+    <circle cx="200" cy="350" r="5"/>
+    <circle cx="312" cy="350" r="5"/>
+  </g>
+
+  <!-- Connection lines -->
+  <g stroke="#3b82f6" stroke-width="1" opacity="0.2">
+    <line x1="100" y1="90" x2="130" y2="180"/>
+    <line x1="130" y1="180" x2="165" y2="270"/>
+    <line x1="165" y1="270" x2="200" y2="350"/>
+    <line x1="200" y1="350" x2="256" y2="420"/>
+
+    <line x1="412" y1="90" x2="382" y2="180"/>
+    <line x1="382" y1="180" x2="347" y2="270"/>
+    <line x1="347" y1="270" x2="312" y2="350"/>
+    <line x1="312" y1="350" x2="256" y2="420"/>
+
+    <!-- Cross links -->
+    <line x1="100" y1="90" x2="165" y2="270"/>
+    <line x1="412" y1="90" x2="347" y2="270"/>
+    <line x1="130" y1="180" x2="200" y2="350"/>
+    <line x1="382" y1="180" x2="312" y2="350"/>
+  </g>
+
+  <!-- Flowing lines - left -->
+  <path d="M90 60 Q140 200 256 450" stroke="url(#fadeVeil)" stroke-width="3" fill="none" opacity="0.25"/>
+  <path d="M110 60 Q155 200 256 440" stroke="url(#fadeVeil)" stroke-width="4" fill="none" opacity="0.3"/>
+  <path d="M130 60 Q170 200 256 430" stroke="url(#fadeVeil)" stroke-width="5" fill="none" opacity="0.4"/>
+  <path d="M150 60 Q185 200 256 420" stroke="url(#fadeVeil)" stroke-width="6" fill="none" opacity="0.5"/>
+  <path d="M170 60 Q198 190 256 410" stroke="url(#fadeVeil)" stroke-width="8" fill="none" opacity="0.6"/>
+  <path d="M190 60 Q212 180 256 400" stroke="url(#fadeVeil)" stroke-width="10" fill="none" opacity="0.75"/>
+
+  <!-- Flowing lines - right -->
+  <path d="M422 60 Q372 200 256 450" stroke="url(#fadeVeil)" stroke-width="3" fill="none" opacity="0.25"/>
+  <path d="M402 60 Q357 200 256 440" stroke="url(#fadeVeil)" stroke-width="4" fill="none" opacity="0.3"/>
+  <path d="M382 60 Q342 200 256 430" stroke="url(#fadeVeil)" stroke-width="5" fill="none" opacity="0.4"/>
+  <path d="M362 60 Q327 200 256 420" stroke="url(#fadeVeil)" stroke-width="6" fill="none" opacity="0.5"/>
+  <path d="M342 60 Q314 190 256 410" stroke="url(#fadeVeil)" stroke-width="8" fill="none" opacity="0.6"/>
+  <path d="M322 60 Q300 180 256 400" stroke="url(#fadeVeil)" stroke-width="10" fill="none" opacity="0.75"/>
+
+  <!-- Core V -->
+  <path d="M210 60 L256 380 L302 60"
+        stroke="url(#fadeVeil)"
+        stroke-width="24"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#softGlow)"/>
+
+  <!-- Bright core highlight -->
+  <path d="M216 70 L256 360 L296 70"
+        stroke="#a5d8ff"
+        stroke-width="6"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.5"/>
+
+  <!-- Convergence node -->
+  <circle cx="256" cy="380" r="14" fill="url(#cyanGrad)" filter="url(#softGlow)"/>
+  <circle cx="256" cy="380" r="7" fill="#ffffff" opacity="0.6"/>
+
+</svg>
