@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="darkSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c2333" />
+      <stop offset="50%" style="stop-color:#0d1117" />
+      <stop offset="100%" style="stop-color:#1c2333" />
+    </linearGradient>
+
+    <linearGradient id="metalRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a5568" />
+      <stop offset="30%" style="stop-color:#718096" />
+      <stop offset="50%" style="stop-color:#a0aec0" />
+      <stop offset="70%" style="stop-color:#718096" />
+      <stop offset="100%" style="stop-color:#4a5568" />
+    </linearGradient>
+
+    <linearGradient id="blueCore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed" />
+      <stop offset="100%" style="stop-color:#2b6cb0" />
+    </linearGradient>
+
+    <linearGradient id="veilFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#63b3ed;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#4299e1;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:0" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Outer beveled ring -->
+  <circle cx="256" cy="256" r="250" fill="url(#metalRing)" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="242" fill="url(#darkSteel)"/>
+  <circle cx="256" cy="256" r="235" fill="none" stroke="#2d3748" stroke-width="2"/>
+
+  <!-- Inner ring detail -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#4a5568" stroke-width="1" opacity="0.5"/>
+  <circle cx="256" cy="256" r="190" fill="#0a0e14"/>
+
+  <!-- PLEIADES CONSTELLATION -->
+  <g filter="url(#starGlow)">
+    <!-- Alcyone -->
+    <polygon points="256,48 259,57 269,57 261,63 264,73 256,67 248,73 251,63 243,57 253,57" fill="#e0f2fe"/>
+    <circle cx="256" cy="60" r="3" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Atlas -->
+    <polygon points="215,55 217,62 224,62 219,66 221,74 215,70 209,74 211,66 206,62 213,62" fill="#bae6fd"/>
+    <circle cx="215" cy="64" r="2" fill="#ffffff" opacity="0.7"/>
+
+    <!-- Pleione -->
+    <polygon points="200,70 202,76 208,76 204,79 205,86 200,82 195,86 196,79 192,76 198,76" fill="#7dd3fc" opacity="0.9"/>
+
+    <!-- Maia -->
+    <polygon points="290,60 292,67 299,67 294,71 296,79 290,75 284,79 286,71 281,67 288,67" fill="#bae6fd"/>
+    <circle cx="290" cy="69" r="2" fill="#ffffff" opacity="0.7"/>
+
+    <!-- Electra -->
+    <polygon points="228,82 230,88 236,88 232,92 233,99 228,95 223,99 224,92 220,88 226,88" fill="#7dd3fc" opacity="0.85"/>
+
+    <!-- Taygeta -->
+    <polygon points="298,45 300,51 306,51 302,54 303,61 298,57 293,61 294,54 290,51 296,51" fill="#7dd3fc" opacity="0.85"/>
+
+    <!-- Merope -->
+    <polygon points="272,85 274,91 280,91 276,94 277,101 272,97 267,101 268,94 264,91 270,91" fill="#7dd3fc" opacity="0.8"/>
+  </g>
+
+  <!-- Constellation connections -->
+  <g stroke="#63b3ed" stroke-width="0.5" opacity="0.12">
+    <line x1="256" y1="60" x2="215" y2="64"/>
+    <line x1="256" y1="60" x2="290" y2="69"/>
+    <line x1="215" y1="64" x2="200" y2="76"/>
+    <line x1="215" y1="64" x2="228" y2="90"/>
+    <line x1="290" y1="69" x2="298" y2="53"/>
+    <line x1="290" y1="69" x2="272" y2="93"/>
+  </g>
+
+  <!-- Veil flow + fade (left) -->
+  <path d="M155 110 Q190 230 256 410" stroke="url(#veilFade)" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M170 110 Q202 230 256 395" stroke="url(#veilFade)" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M185 110 Q214 230 256 380" stroke="url(#veilFade)" stroke-width="4" fill="none" opacity="0.5"/>
+  <path d="M200 110 Q226 220 256 365" stroke="url(#veilFade)" stroke-width="6" fill="none" opacity="0.6"/>
+  <path d="M215 110 Q236 210 256 350" stroke="url(#veilFade)" stroke-width="8" fill="none" opacity="0.7"/>
+
+  <!-- Veil flow + fade (right) -->
+  <path d="M357 110 Q322 230 256 410" stroke="url(#veilFade)" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M342 110 Q310 230 256 395" stroke="url(#veilFade)" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M327 110 Q298 230 256 380" stroke="url(#veilFade)" stroke-width="4" fill="none" opacity="0.5"/>
+  <path d="M312 110 Q286 220 256 365" stroke="url(#veilFade)" stroke-width="6" fill="none" opacity="0.6"/>
+  <path d="M297 110 Q276 210 256 350" stroke="url(#veilFade)" stroke-width="8" fill="none" opacity="0.7"/>
+
+  <!-- Main V -->
+  <path d="M230 110 L256 340 L282 110"
+        stroke="url(#veilFade)"
+        stroke-width="16"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
+
+  <!-- V highlight -->
+  <path d="M234 118 L256 325 L278 118"
+        stroke="#a0d8ef"
+        stroke-width="4"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.4"/>
+
+  <!-- Convergence point -->
+  <circle cx="256" cy="340" r="10" fill="#63b3ed" filter="url(#glow)"/>
+  <circle cx="256" cy="340" r="4" fill="#ffffff" opacity="0.6"/>
+
+</svg>
